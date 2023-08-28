@@ -21,20 +21,34 @@ let secondNumber = "";
 let operator = "";
 
 function operate(firstNumber, secondNumber) {
-  return add(firstNumber, secondNumber);
+  if (operator == "+") {
+    return add(firstNumber, secondNumber);
+  } else if (operator == "-") {
+    return subtract(firstNumber, secondNumber);
+  } else if (operator == "x") {
+    return multiply(firstNumber, secondNumber);
+  } else {
+    return divide(firstNumber, secondNumber);
+  }
 }
 
 // Define Display Value
-let displayValue = document.querySelector('#display-value');
+let displayValue = document.querySelector("#display-value");
 
 // Define Number buttons and input function
 let isNumber = document.querySelectorAll(".numbers");
 
 isNumber.forEach(function (button) {
   button.addEventListener("click", function () {
-    firstNumber += button.textContent;
-    console.log(firstNumber);
-    displayValue.textContent = firstNumber;
+    if (firstNumber == "") {
+      firstNumber += button.textContent;
+      console.log(firstNumber);
+      displayValue.textContent = firstNumber;
+    } else if (!firstNumber == "") {
+      secondNumber += button.textContent;
+      console.log(secondNumber);
+      displayValue.textContent = secondNumber;
+    }
   });
 });
 
@@ -57,4 +71,17 @@ isClear.addEventListener("click", function () {
   secondNumber = "";
   operator = "";
   displayValue.textContent = 0;
+});
+
+//Define Equals button and input function
+let isEquals = document.querySelector("#row4 :nth-child(3)");
+
+isEquals.addEventListener("click", function () {
+  firstNumber *= 1;
+  secondNumber *= 1;
+  console.log(operate(firstNumber, secondNumber));
+  displayValue.textContent = operate(firstNumber, secondNumber);
+  firstNumber = "";
+  secondNumber = "";
+  operator = "";
 });
