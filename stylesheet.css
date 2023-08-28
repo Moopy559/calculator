@@ -30,6 +30,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   overflow: hidden;
+  border-radius: 5px;
 }
 
 /* Screen content */
@@ -67,6 +68,10 @@ body {
   border-radius: 10px;
   border: none;
   font-size: 20px;
+}
+
+.buttons-container button:hover {
+filter: brightness(0.85);
 }
 
 /* Clear button */
