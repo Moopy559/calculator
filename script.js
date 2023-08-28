@@ -16,20 +16,30 @@ function divide(num1, num2) {
 }
 
 // Variables for operator functions
-let firstNumber = '';
-let secondNumber = '';
-let operator = '';
+let firstNumber = "";
+let secondNumber = "";
+let operator = "";
 
 function operate(firstNumber, secondNumber) {
-    return add(firstNumber, secondNumber);
+  return add(firstNumber, secondNumber);
 }
 
-let isNumber = document.querySelectorAll('.numbers');
-console.log(isNumber);
+// Define Number buttons and input function
+let isNumber = document.querySelectorAll(".numbers");
 
-isNumber.forEach(function(button) {
-  button.addEventListener('click', function() {
+isNumber.forEach(function (button) {
+  button.addEventListener("click", function () {
     firstNumber += button.textContent;
     console.log(firstNumber);
+  });
+});
+
+// Define Operator buttons and input function
+let isOperator = document.querySelectorAll(".operators");
+
+isOperator.forEach(function (button) {
+  button.addEventListener("click", function () {
+    operator = button.textContent;
+    console.log(operator);
   });
 });
